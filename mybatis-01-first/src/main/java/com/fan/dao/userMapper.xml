@@ -6,7 +6,26 @@
         <!--namespace:绑定一个对应的Dao/mapper接口-->
 <mapper namespace="com.fan.dao.UserMapper">
 
-<select id="selectUser" resultType="com.fan.pojo.User">
-    select * from user
-  </select>
+    <!--查找所有用户-->
+    <select id="selectUser" resultType="com.fan.pojo.User">
+        select * from user
+    </select>
+
+    <!--根据id查找自定用户-->
+    <select id="getById" parameterType="int" resultType="com.fan.pojo.User">
+        select * from user where id = #{id}
+    </select>
+
+    <!--删除指定用户-->
+    <delete id="delete" parameterType="int">
+        delete from user where id = #{id}
+    </delete>
+
+    <insert id="add" parameterType="com.fan.pojo.User">
+        insert into user(id,name,pwd) values (#{id},#{name},#{pwd})
+    </insert>
+
+    <update id="update" parameterType="com.fan.pojo.User">
+        update user set name = #{name},pwd=#{pwd} where id = #{id};
+    </update>
 </mapper>
