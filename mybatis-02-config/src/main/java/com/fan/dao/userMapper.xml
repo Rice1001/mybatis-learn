@@ -7,12 +7,12 @@
 <mapper namespace="com.fan.dao.UserMapper">
 
     <!--查找所有用户-->
-    <select id="selectUser" resultType="com.fan.pojo.User">
+    <select id="selectUser" resultType="User">
         select * from user
     </select>
 
     <!--根据id查找自定用户-->
-    <select id="getById" parameterType="int" resultType="com.fan.pojo.User">
+    <select id="getById" parameterType="int" resultType="User">
         select * from user where id = #{id}
     </select>
 
@@ -21,11 +21,11 @@
         delete from user where id = #{id}
     </delete>
 
-    <insert id="add" parameterType="com.fan.pojo.User">
+    <insert id="add" parameterType="User">
         insert into user(id,name,pwd) values (#{id},#{name},#{pwd})
     </insert>
 
-    <update id="update" parameterType="com.fan.pojo.User">
+    <update id="update" parameterType="User">
         update user set name = #{name},pwd=#{pwd} where id = #{id};
     </update>
 </mapper>
