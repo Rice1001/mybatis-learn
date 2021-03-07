@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+        <!DOCTYPE mapper
+                PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+                "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+        <!--namespace:绑定一个对应的Dao/mapper接口-->
+<mapper namespace="com.fan.dao.UserMapper">
+
+    <!--查找所有用户-->
+    <select id="selectUser" resultType="User">
+        select * from user
+    </select>
+
+    <!--根据id查找自定用户-->
+<!--    &lt;!&ndash;当属性名跟字段名不一致时的解决方法。方式一：使用别名&ndash;&gt;-->
+<!--    <select id="getById" parameterType="int" resultType="User">-->
+<!--        select id, name, pwd as password from user where id = #{id}-->
+<!--    </select>-->
+
+
+    <!--当属性名跟字段名不一致时的解决方法。方式二：使用resultMap,结果集映射-->
+
+    <resultMap id="userMap" type="User">
+        <result column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="pwd" property="password"/>
+
+    </resultMap>
+    <select id="getById" parameterType="int" resultMap="userMap">
+        select * from user where id = #{id}
+    </select>
+
+
+
+</mapper>

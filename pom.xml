@@ -11,6 +11,7 @@
     <modules>
         <module>mybatis-01-first</module>
         <module>mybatis-02-config</module>
+        <module>spring-03-name</module>
     </modules>
 
     <dependencies>
