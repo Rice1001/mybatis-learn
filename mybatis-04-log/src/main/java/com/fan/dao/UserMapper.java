@@ -2,6 +2,7 @@ package com.fan.dao;
 
 import com.fan.pojo.User;
 
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -12,5 +13,6 @@ import java.util.List;
 public interface UserMapper {
     List<User> selectUser();
     User getById(int id);
+    List<User> getUserPage(HashMap<String, Integer> map);
 
 }

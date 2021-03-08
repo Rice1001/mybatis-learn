@@ -16,4 +16,9 @@
         select * from user where id = #{id}
     </select>
 
+    <!--search user by page-->
+    <select id="getUserPage" parameterType="map" resultType="user">
+        select * from user limit #{startIndex},#{pageSize}
+    </select>
+
 </mapper>
